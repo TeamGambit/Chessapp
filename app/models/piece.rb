@@ -4,3 +4,7 @@ class Piece < ActiveRecord::Base
 
   enum color: [:white, :black]
 end
+
+def self.types
+   %w(Pawn Rook Knight Bishop Queen King)
+ end
