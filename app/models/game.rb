@@ -1,4 +1,4 @@
-gclass Game < ActiveRecord::Base
+class Game < ActiveRecord::Base
   has_many :pieces
 
   enum state: [:in_progress, :complete]
@@ -52,3 +52,4 @@ def populate_board!
     Queen.create(x: 3, y: 7, color: [:black])
     King.create(x: 4, y: 7, color: [:black])
   end
+end
