@@ -6,5 +6,5 @@ class Piece < ActiveRecord::Base
 end
 
 def self.types
-   %w(Pawn Rook Knight Bishop Queen King)
- end
+  %w(Pawn Rook Knight Bishop Queen King)
+end
