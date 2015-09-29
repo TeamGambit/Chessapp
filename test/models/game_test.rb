@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class GameTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "board is populated with 32 peices when started" do
+    g = Game.create
+    assert_equal 32, g.pieces.count    
+  end
 end
+
+
