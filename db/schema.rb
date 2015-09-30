@@ -17,7 +17,11 @@ ActiveRecord::Schema.define(version: 20150922195510) do
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
+<<<<<<< HEAD
     t.string   "name"
+=======
+    t.string   "name",              limit: 255
+>>>>>>> working on is obstructed method
     t.integer  "state"
     t.integer  "white_player_id"
     t.integer  "black_player_id"
@@ -28,11 +32,15 @@ ActiveRecord::Schema.define(version: 20150922195510) do
   end
 
   create_table "pieces", force: :cascade do |t|
+<<<<<<< HEAD
     t.string   "type"
+=======
+    t.string   "type",       limit: 255
+>>>>>>> working on is obstructed method
     t.integer  "x_position"
     t.integer  "y_position"
     t.integer  "color"
-    t.string   "image"
+    t.string   "image",      limit: 255
     t.boolean  "captured"
     t.integer  "player_id"
     t.integer  "game_id"
@@ -51,6 +59,10 @@ ActiveRecord::Schema.define(version: 20150922195510) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+<<<<<<< HEAD
+=======
+    t.string   "name",                   limit: 255
+>>>>>>> working on is obstructed method
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
   end
