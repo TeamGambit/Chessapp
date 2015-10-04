@@ -6,9 +6,6 @@ gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-
 gem 'simple_form'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -35,8 +32,8 @@ group :doc do
 end
 
 gem 'devise'
-
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'sass-rails', '~> 4.0.2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
