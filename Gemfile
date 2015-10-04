@@ -36,6 +36,11 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '~> 4.0.2'
 
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
