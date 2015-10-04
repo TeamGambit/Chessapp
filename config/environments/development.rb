@@ -16,7 +16,7 @@ Chessapp::Application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
-  
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -27,4 +27,6 @@ Chessapp::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  BetterErrors::Middleware.allow_ip! "10.0.2.2" if defined?(BetterErrors)
 end
