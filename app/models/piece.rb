@@ -7,25 +7,39 @@ class Piece < ActiveRecord::Base
     %w(Pawn Rook Knight Bishop Queen King)
   end
 
-  def is_obstructed?(to_x,to_y)
-    obstruction_array = obstructed_squares(to_x, to_y)
+  # checks database for occupied tile
+  def occupied?(x, y)
+    game.pieces.exists?(:x_position => x,
+                        :y_position => y)
+  end
 
-    return false if obstruction_array.empty?
+  def is_obstructed?(dest_x,dest_y)
+    origin_x = self.x_position
+    origin_y = self.y_position
 
-    obstruction_array.each do |square|
+    delta_x = (origin_x - dest_x).abs
+    delta_y = (origin_y - dest_y).abs
+
+    # for horizontal and vertical move
+    if (origin_x == dest_x && origin_y != dest_y) || (origin_y == dest_y && origin_x != dest_x)
+      obstruction_array = linear_obstruction_array(dest_x, dest_y)
+
+    # for diagonal move
+    elsif origin_x != dest_x && origin_y != dest_y && delta_x == delta_y
+      obstruction_array = diagonal_obstruction_array(dest_x, dest_y)
+
+    # in valid move
+    elsif delta_x != delta_y
+      raise "Illegal move"
+    end
+
+    obstruction_array.each do |tile|
       # return true if we find an obstruction
-      # return true if game.obstruction(square[0], square[1])
-      return true if obstruction?(square[0], square[1])
+      return true if occupied?(tile[0], tile[1])
     end
 
     # default to false
     false
-  end
-
-  # this method collects an array of squares where an obstruction could occur
-  # the checks each of those squares for any obstructing piece
-  def obstructed_squares(x, y)
-    fail NotImplementedError 'Pieces must implement #obstructed_squares'
   end
 
 end
