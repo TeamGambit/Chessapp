@@ -51,3 +51,4 @@ def populate_board!
     King.create(x_position: 4, y_position: 7, color: :black)
   end
 end
+
