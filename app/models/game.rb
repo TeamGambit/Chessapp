@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
   has_many :pieces
 
-  enum state: [:in_progress, :complete]
+  enum state: [:in_progress, :complete, :open]
 end
