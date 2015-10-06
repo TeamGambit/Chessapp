@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails Chessapp: development" uuid="295240df-10e6-404e-b735-f34629d82cfe">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails Chessapp: test" uuid="84a4aeec-0be8-484a-ab86-637d9860250b">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails Chessapp: production" uuid="5820d941-c6c5-4b2e-85f8-0b146578f507">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
