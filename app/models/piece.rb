@@ -4,7 +4,6 @@ class Piece < ActiveRecord::Base
   belongs_to :player
   enum color: [:white, :black]
 
-
   def self.types
     %w(Pawn Rook Knight Bishop Queen King)
   end
@@ -29,7 +28,7 @@ class Piece < ActiveRecord::Base
     elsif origin_x != dest_x && origin_y != dest_y && delta_x == delta_y
       obstruction_array = diagonal_obstruction_array(dest_x, dest_y)
 
-    # invalid move
+    # in valid move
     elsif delta_x != delta_y
       raise "Illegal move"
     end
