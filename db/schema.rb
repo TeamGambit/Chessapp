@@ -18,10 +18,14 @@ ActiveRecord::Schema.define(version: 20150922195510) do
 
   create_table "games", force: :cascade do |t|
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.string   "name"
 =======
     t.string   "name",              limit: 255
 >>>>>>> working on is obstructed method
+=======
+    t.string   "name",              limit: 255
+>>>>>>> 07bb8cb2eda6039614d92ead35e88cf5241565b8
     t.integer  "state"
     t.integer  "white_player_id"
     t.integer  "black_player_id"
@@ -33,10 +37,14 @@ ActiveRecord::Schema.define(version: 20150922195510) do
 
   create_table "pieces", force: :cascade do |t|
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.string   "type"
 =======
     t.string   "type",       limit: 255
 >>>>>>> working on is obstructed method
+=======
+    t.string   "type",       limit: 255
+>>>>>>> 07bb8cb2eda6039614d92ead35e88cf5241565b8
     t.integer  "x_position"
     t.integer  "y_position"
     t.integer  "color"
@@ -60,9 +68,13 @@ ActiveRecord::Schema.define(version: 20150922195510) do
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     t.string   "name",                   limit: 255
 >>>>>>> working on is obstructed method
+=======
+    t.string   "name",                   limit: 255
+>>>>>>> 07bb8cb2eda6039614d92ead35e88cf5241565b8
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
   end
