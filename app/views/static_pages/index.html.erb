@@ -1,1 +1,9 @@
 <h1>Hello!</h1>
+
+<% @games.each do |game| %>
+<h2 class="text-center">
+<%= game.name %>
+</h2>
+<br />
+<%= game.state %>Game Created: <%= game.created_at %><br />
+<% end %>
