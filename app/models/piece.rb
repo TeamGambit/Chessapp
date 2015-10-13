@@ -8,6 +8,12 @@ class Piece < ActiveRecord::Base
     %w(Pawn Rook Knight Bishop Queen King)
   end
 
+  def position_on_board?(x,y)
++     return false if x < 0 || x > 7
++     return false if y < 0 || y > 7
++     return true
++  end
+
   # checks database for occupied tile
   def occupied?(x, y)
     game.pieces.exists?(x_position: x, y_position: y)
