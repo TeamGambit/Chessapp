@@ -5,7 +5,7 @@ class Piece < ActiveRecord::Base
   enum color: [:white, :black]
 
   def self.types
-    %w(Pawn Rook Knight Bishop Queen King)
+    %w{Pawn Rook Knight Bishop Queen King}
   end
 
   # checks database for occupied tile
