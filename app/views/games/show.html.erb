@@ -1,12 +1,12 @@
-
-
 <table id="chess_board" cellpadding="0" cellspacing="0">
+    <% @chessboard.each do |row| %>
 
-  <% @board.each do |row| %>
-  <tr>
-    <% row.each do |col| %>
-    <td>
-      <%= col %>
-  <% end %>
-  <% end %>
-  </table>
+        <tr>
+            <% row.each do |col| %>
+            <td>
+                <%= render_piece(col) %>
+            </td>
+            <% end %>
+        </tr>
+    <% end %>
+</table>

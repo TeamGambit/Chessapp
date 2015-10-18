@@ -2,7 +2,6 @@ class Game < ActiveRecord::Base
   has_many :pieces
 
   enum state: [:in_progress, :complete]
-
   after_create :populate_board!
 
 def populate_board!
@@ -53,4 +52,3 @@ def populate_board!
     King.create(x_position: 4, y_position: 7, color: :black, game_id: id)
   end
 end
-

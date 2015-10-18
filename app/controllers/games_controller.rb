@@ -1,33 +1,30 @@
 class GamesController < ApplicationController
 
-
   def new
-    @game = Game.new
-
-
   end
 
   def create
-
   end
 
   def show
-    @board =[
-      ["test", "test", "test", "test", "test", "test", "test", "test"],
+      chessboard=[]
+        8.times.each do |i|
+          chessboard[i]=[]
+            8.times.each do |j|
+              chessboard[i][j]=nil
+            end
+        end
+      @chessboard=chessboard
 
-      ["test", "test", "test", "test", "test", "test", "test", "test"],
+      @game=Game.find(1)
 
-      ["test", "test", "test", "test", "test", "test", "test", "test"],
+      pieces=@game.pieces
 
-      ["test", "test", "test", "test", "test", "test", "test", "test"],
+      pieces.each do |piece|
+      chessboard[piece.y_position][piece.x_position]= piece
+      end
 
-      ["test", "test", "test", "test", "test", "test", "test", "test"],
-
-      ["test", "test", "test", "test", "test", "test", "test", "test"],
-
-      ["test", "test", "test", "test", "test", "test", "test", "test"],
-
-      ["test", "test", "test", "test", "test", "test", "test", "test"]
-    ]
   end
+
+
 end
