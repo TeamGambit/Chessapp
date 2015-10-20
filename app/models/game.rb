@@ -1,18 +1,20 @@
 class Game < ActiveRecord::Base
   has_many :pieces
 
+
   enum state: [:in_progress, :complete]
+
   after_create :populate_board!
 
-def populate_board!
+  def populate_board!
     #White Pawns
     (0..7).each do |i|
       Pawn.create(
-        x_position: i,
-        y_position: 1,
-        color: :white,
-        game_id: id,
-        )
+      x_position: i,
+      y_position: 1,
+      color: :white,
+      game_id: id,
+      )
     end
 
     #White Pieces:
@@ -31,11 +33,11 @@ def populate_board!
     #Black Pawns
     (0..7).each do |i|
       Pawn.create(
-        x_position: i,
-        y_position: 6,
-        color: :black,
-        game_id: id,
-        )
+      x_position: i,
+      y_position: 6,
+      color: :black,
+      game_id: id,
+      )
     end
 
     #Black Pieces
