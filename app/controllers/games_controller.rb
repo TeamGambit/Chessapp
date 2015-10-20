@@ -7,24 +7,18 @@ class GamesController < ApplicationController
   end
 
   def show
-      chessboard=[]
-        8.times.each do |i|
-          chessboard[i]=[]
-            8.times.each do |j|
-              chessboard[i][j]=nil
-            end
-        end
-      @chessboard=chessboard
-
-      @game=Game.find(1)
-
-      pieces=@game.pieces
-
-      pieces.each do |piece|
-      chessboard[piece.y_position][piece.x_position]= piece
-      end
+    @chessboard = empty_chessboard
+    @game=Game.find(1)
+    pieces=@game.pieces
+    pieces.each do |piece|
+      @chessboard[piece.y_position][piece.x_position] = piece
+    end
 
   end
+  private
 
+  def empty_chessboard
+    Array.new(8) { Array.new(8) }
+  end
 
 end
