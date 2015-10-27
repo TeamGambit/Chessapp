@@ -5,7 +5,7 @@ class Game < ActiveRecord::Base
 
   after_create :populate_board!
 
-def populate_board!
+  def populate_board!
     #White Pawns
     (0..7).each do |i|
       Pawn.create(
@@ -52,5 +52,17 @@ def populate_board!
     Queen.create(x_position: 3, y_position: 7, color: :black, game_id: id)
     King.create(x_position: 4, y_position: 7, color: :black, game_id: id)
   end
+
+  def check?(color)
+    king = pieces.find_by(type: 'King', color: color)
+
+    # check valid move to king position on opponent pieces
+    pieces.where("color != ?", color).each do |piece|
+      return true if piece.valid_move?(king.x_position, king.y_position)
+    end
+
+    false
+  end
+
 end
 
