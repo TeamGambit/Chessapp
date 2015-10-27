@@ -48,7 +48,7 @@ class Piece < ActiveRecord::Base
 
   def move_to!(new_x, new_y)
 
-      raise "Illegal move" unless valid_move(new_x, new_y)
+      raise "Illegal move" unless valid_move?(new_x, new_y)
       #First, check to see if there is a piece in the location it’s moving to.
       if occupied?(new_x, new_y)
         piece_in_destination = get_piece(new_x, new_y)
@@ -62,7 +62,7 @@ class Piece < ActiveRecord::Base
         end
       end
       self.update_attributes(:x_position => new_x, :y_position => new_y)
-      
+
    end
 
 end
