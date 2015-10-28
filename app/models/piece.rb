@@ -5,7 +5,7 @@ class Piece < ActiveRecord::Base
   enum color: [:white, :black]
 
   def self.types
-    %w(Pawn Rook Knight Bishop Queen King)
+    %w{Pawn Rook Knight Bishop Queen King}
   end
 
   # checks database for occupied tile
@@ -41,5 +41,28 @@ class Piece < ActiveRecord::Base
     # default to false
     false
   end
+
+  def get_piece(x,y)
+    return Piece.find_by(:game_id=> game.id, :x_position => x, :y_position => y, :captured => false).first
+  end
+
+  def move_to!(new_x, new_y)
+
+      raise "Illegal move" unless valid_move?(new_x, new_y)
+      #First, check to see if there is a piece in the location it’s moving to.
+      if occupied?(new_x, new_y)
+        piece_in_destination = get_piece(new_x, new_y)
+        # Second, if there is a piece there, and it’s the opposing color, remove the piece from the board.
+        if self.color != piece_in_destination.color
+        # Set opposing team piece status to “captured”.
+          piece_in_destination.update_attributes(:captured => true)
+        #Third, if the piece is there and it’s the same color - raise an error message.
+        else
+          raise "Own Piece in Destination"
+        end
+      end
+      self.update_attributes(:x_position => new_x, :y_position => new_y)
+
+   end
 
 end
