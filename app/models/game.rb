@@ -57,7 +57,7 @@ class Game < ActiveRecord::Base
     king = pieces.find_by(type: 'King', color: color)
 
     # check valid move to king position on opponent pieces
-    pieces.where("color != ?", color).each do |piece|
+    pieces.where.not(color: color).each do |piece|
       return true if piece.valid_move?(king.x_position, king.y_position)
     end
 
