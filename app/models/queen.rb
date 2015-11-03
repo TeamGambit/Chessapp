@@ -5,16 +5,20 @@ class Queen < Piece
     is_obstructed?(x,y) ? false : true
     # Can  move in horizonal and vertical directions
         return false unless
-          #Vertical Move
-          (x = self.x_position && y != self.y_position)
-          #Horizontal Move
-          ||
-          (x != self.x_position && y = self.y_position)
-          #Can also move diagonally
-          ||
-          (x_position - x).abs == (y_position - y).abs
-          
+          horizontal_move?(x,y) || vertical_move?(x,y) || diagonal_move?(x,y)
         end
+  end
+
+  def horizontal_move?(x, y)
+    (x != self.x_position && y == self.y_position)
+  end
+
+  def vertical_move?(x,y)
+    (x == self.x_position && y != self.y_position)
+  end
+
+  def diagonal_move?(x,y)
+    (x_position - x).abs == (y_position - y).abs
   end
 
 end
