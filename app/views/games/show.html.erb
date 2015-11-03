@@ -4,7 +4,7 @@
         <tr>
             <% row.each do |col| %>
             <td>
-                <%= render_piece(col) %>
+                <%= link_to render_piece(col) %>
             </td>
             <% end %>
         </tr>
