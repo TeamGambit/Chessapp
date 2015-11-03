@@ -65,4 +65,21 @@ class Game < ActiveRecord::Base
     false
   end
 
+  def is_checkmate?(color)
+    if check?(color)
+      tiles = [-1, 0, 1]
+      king = pieces.find_by(type: 'King', color: color)
+
+      # create array tiles around the King in all directions
+      king_moves = tiles.repeated_permutation(2).to_a
+
+      # look for King valid
+      king_moves.each do |move|
+        false if king.valid_move?(move[0], move[1])
+      end
+
+      true
+    end
+  end
+
 end
