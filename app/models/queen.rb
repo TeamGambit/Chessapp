@@ -13,6 +13,7 @@ class Queen < Piece
           #Can also move diagonally
           ||
           (x_position - x).abs == (y_position - y).abs
+          
         end
   end
 
