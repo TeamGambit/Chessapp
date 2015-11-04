@@ -5,7 +5,7 @@ class Pawn < Piece
   end
 
   def first_move?(y)
-    (color: :white && y_position == 1) || (color: :black && y_position == 6)
+    (white? && y_position == 1) || (black? && y_position == 6)
   end
 
   def horizontal_move?(x)
