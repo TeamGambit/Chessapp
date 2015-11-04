@@ -12,4 +12,3 @@ class Pawn < Piece
     dest_x != 0
   end
 end
-
